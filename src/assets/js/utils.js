@@ -1,5 +1,4 @@
 import VueCookies from 'vue-cookies'
-import base from '@/api/api'
 // 通过时间戳获取时间格式
 const changetime = (time, type) => {
 	var d = new Date(time)
@@ -76,35 +75,11 @@ const formRuleError = () => {
 		}
 	}, 100)
 }
-const openPage = (path, newpage) => {
-	//其他项目页面跳转-兼容iframe
-	if (path.indexOf('http') != 0) {
-		path = base.baseapi.web + path
-	}
-	if (self != top) {
-		if (newpage == -1) {
-			parent.window.history.go(-1)
-		} else if (newpage) {
-			parent.window.open(path)
-		} else {
-			parent.window.location.href = path
-		}
-	} else {
-		if (newpage == -1) {
-			window.history.go(-1)
-		} else if (newpage) {
-			window.open(path)
-		} else {
-			window.location.href = path
-		}
-	}
-}
 
 export default {
 	changetime,
 	trim,
 	cookies,
 	formRuleError,
-	openPage,
 	filterParams
 }

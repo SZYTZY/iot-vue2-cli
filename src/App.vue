@@ -1,5 +1,5 @@
 <template>
-	<div v-cloak id="app" class="app-content">
+	<div>
 		<keep-alive>
 			<router-view v-if="$route.meta.keepAlive"></router-view>
 		</keep-alive>
@@ -8,7 +8,7 @@
 </template>
 <script>
 export default {
-	name: 'App'
+	name: 'ChildApp'
 }
 </script>
 

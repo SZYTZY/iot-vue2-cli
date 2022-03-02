@@ -1,16 +1,12 @@
+
+const { name } = require('./package');
 module.exports = {
 	productionSourceMap: false,
 	publicPath: './',
 	indexPath: 'index.html',
 	outputDir: 'dist',
 	configureWebpack: {
-		entry: ['babel-polyfill', './src/main.js'],
-		externals: {
-			vue: 'Vue',
-			'vue-router': 'VueRouter',
-			vuex: 'Vuex',
-			'element-ui': 'ELEMENT'
-		}
+		entry: ['babel-polyfill', './src/main.js']
 	},
 	css: {
 		loaderOptions: {
@@ -51,5 +47,13 @@ module.exports = {
 				}
 			}
 		}
-	}
+	},
+	configureWebpack: {
+    output: {
+      //把子应用打包成umd库格式（必须）
+      library: `${name}-[name]`,
+      libraryTarget: 'umd',
+      jsonpFunction: `webpackJsonp_${name}`,
+    }
+  }
 }

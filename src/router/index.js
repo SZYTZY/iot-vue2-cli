@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 import homeRouter from './home'
-Vue.use(Router)
-const router = new Router({
+Vue.use(VueRouter)
+const router = new VueRouter({
 	mode: 'hash',
 	routes: [
 		{
